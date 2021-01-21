@@ -1,0 +1,17 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  liferay:
+    image: liferay/portal:7.3.5-ga6
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server:/mnt/liferay
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:13.1
+    environment:
+        - POSTGRES_PASSWORD=sa
+        - POSTGRES_DB=lportal
+    volumes:        
+        - ./postgres/init-db-lportal.sh:/docker-entrypoint-initdb.d/init-db-lportal.sh

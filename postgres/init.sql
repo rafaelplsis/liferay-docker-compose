@@ -1,0 +1,2 @@
+CREATE DATABASE lportal;
+GRANT ALL PRIVILEGES ON DATABASE "lportal" to postgres;
